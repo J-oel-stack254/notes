@@ -1,258 +1,280 @@
+# Ethical Hacking Notes  
+_Complete Markdown Notes with Explanations_
+
+---
 
-### **Introduction to Ethical Hacking**
-Ethical hacking is the authorized practice of bypassing system security to identify vulnerabilities that malicious hackers could exploit.
-Objectives
+# 1. Introduction to Ethical Hacking
+
+## 1.1 What is Ethical Hacking?
+Ethical hacking is the legal and authorized practice of testing computers, networks, and systems to identify vulnerabilities before malicious hackers exploit them.  
+Ethical hackers help organizations strengthen their security by:
+- Discovering weaknesses  
+- Reporting them  
+- Helping fix them  
+
+Ethical hacking must always be:
+- Legally authorized  
+- Performed within scope  
+- Documented carefully  
+
+---
+
+## 1.2 Types of Hackers
+
+### White-Hat Hackers (Ethical Hackers)
+- Work with permission  
+- Improve security  
+- Follow laws and guidelines  
 
+### Black-Hat Hackers
+- Unauthorized  
+- Steal data or cause damage  
+- Malicious intent  
 
-- Improve system security
+### Grey-Hat Hackers
+- Unauthorized but not malicious  
+- Still illegal  
+- Often report vulnerabilities without permission  
+
+---
+
+## 1.3 Phases of Ethical Hacking
+
+### Phase 1: Reconnaissance (Information Gathering)
+Used to collect information about the target.  
+Types:
+- **Passive Recon:** No direct interaction (Google, social media, public data).  
+- **Active Recon:** Direct interaction (scanning, probing).
 
+### Phase 2: Scanning
+Analyzing the target system for:
+- Open ports  
+- Running services  
+- Possible vulnerabilities  
+Tools: Nmap, Nessus, OpenVAS.
 
-- Identify vulnerabilities before attackers do
+### Phase 3: Gaining Access
+Exploiting vulnerabilities discovered in the scanning phase.  
+Techniques include:
+- SQL injection  
+- Brute-force attacks  
+- Exploiting misconfigurations  
 
+### Phase 4: Maintaining Access
+Keeping access long enough to fully test the system.  
+Examples:
+- Installing backdoors  
+- Privilege escalation  
+- Persisting in the system  
 
-- Protect data integrity, confidentiality, and availability
+### Phase 5: Clearing Tracks
+Attackers hide their presence.  
+Ethical hackers **do not** hide anything; they only study these techniques for defense knowledge.
 
+---
 
-- Support penetration testing & security audits
+# 2. Ethical Hacking Concepts
 
+## 2.1 Vulnerabilities
+Weak points in a system that attackers can exploit.  
+Types:
+- Software vulnerabilities  
+- Misconfigurations  
+- Weak passwords  
+- Outdated systems  
 
+---
 
-2. **Types of Hackers**
- **Black Hat Hackers**- Unauthorized access- Malicious intent Aim to steal, damage, or disrup.
+## 2.2 Exploits
+A method or code used to take advantage of a vulnerability.
 
-**White Hat Hackers** - Authorized access with an aim to Improve security.Also known as ethical hackers
+Example:
+- Exploiting an outdated Apache server to gain root access.
 
-**Grey Hat Hackers**
-Semi-authorized or unauthorized access,Not malicious but still illegal,Sometimes report vulnerabilities
+---
 
-3. **Phases of Ethical Hacking**
-- Reconnaissance (Information Gather information) 
-**types of Reconnaissance**
-- Passive Recon → collecting info without interacting
-- Active Recon → interacting with target systems
+## 2.3 Payloads
+Malicious code delivered through an exploit.  
+Examples:
+- Reverse shells  
+- Meterpreter sessions  
 
-**Tools**
+---
 
-- WHOIS
-- nslookup
-- Shodan
-- Maltego
+## 2.4 Attack Vectors
+Entry points attackers use to infiltrate a system.  
+Examples:
+- Phishing  
+- Open ports  
+- Weak Wi-Fi security  
+- Unsafe websites  
 
-2.**Scanning** - Identifying live systems, open ports, and services.
+---
 
-- **Scanning Techniques**
+# 3. Essential Tools for Ethical Hacking
 
-- Port scanning
+## 3.1 Reconnaissance Tools
+- **WHOIS** – Domain registration info  
+- **NSlookup** – DNS information  
+- **Recon-ng** – Automated OSINT framework  
+- **Maltego** – Relationship mapping for OSINT  
 
-- Network scanning
+---
 
-- Vulnerability scanning
+## 3.2 Scanning Tools
 
+### Nmap
+Used to scan networks and identify:
+- Open ports  
+- Services  
+- Operating system fingerprinting  
 
-**Tools**
-- Nmap
-- Nessus
-- OpenVAS
+Examples:
+```bash
+nmap 192.168.1.1
+nmap -A target.com
+nmap -p 1-1000 target.com
+Nessus / OpenVAS
+Automated vulnerability scanners that detect:
 
-3. **Gaining Access** -Exploiting vulnerabilities to enter a system.
+Weak software
 
-**Techniques**
+Configuration issues
 
-- Password cracking
+High-risk vulnerabilities
 
-- SQL injection
+3.3 Exploitation Tools
+Metasploit – Framework for exploiting vulnerabilities
 
-- Exploit kits
+SQLmap – Automates SQL injection
 
-- Malware
+Burp Suite – Web application testing
 
-4. **Maintaining Access**-Ensuring the attacker (ethical hacker) can reenter the system for analysis.
+BeEF – Browser exploitation
 
-**Methods**
+3.4 Password Attacking Tools
+John the Ripper – Local password cracking
 
-- Creating backdoors
+Hashcat – Advanced hash cracking
 
-- Privilege escalation
+Hydra – Network login brute force
 
-- Rootkits
+3.5 Wireless Hacking Tools
+Aircrack-ng – Wi-Fi password cracking
 
+Kismet – Wireless monitoring
 
+Reaver – WPS PIN brute force
 
-5.**Covering Tracks** -Ethical hackers simulate clearing logs to understand attacker behavior.
+4. Types of Attacks in Ethical Hacking
+4.1 Social Engineering Attacks
+Manipulating people instead of systems.
+Examples:
 
-**Examples**
+Phishing
 
-- Clearing system logs
+Impersonation
 
-- Deleting evidence
+Fake websites
 
-- Modifying timestamps (timestomping)
+4.2 Network Attacks
+ARP Poisoning
+Tricks devices into sending data to the attacker by altering MAC/IP mappings.
 
+MITM (Man-in-the-Middle)
+Attacker intercepts communication between two devices.
 
+DNS Spoofing/Poisoning
+Redirects users to fake malicious websites.
 
-       **Common Attack Vectors**
-1. Social Engineering
+Packet Sniffing
+Capturing network traffic using tools like Wireshark.
 
-- Phishing
+4.3 Web Application Attacks
+SQL Injection
+Injecting malicious SQL queries.
+Example:
 
-- Pretexting
+sql
+Copy code
+' OR '1'='1
+XSS (Cross-Site Scripting)
+Injecting JavaScript into web pages to steal cookies or modify content.
 
-- Baiting
+CSRF (Cross-Site Request Forgery)
+Forcing users to perform unintended actions.
 
-- Tailgating
+#4.4 System Attacks
+- Privilege Escalation – Gaining higher access
 
-2. Network Attacks
+- Buffer Overflow – Crashing memory to run commands
 
+- Zero-Day Exploits – Unknown vulnerabilities
 
-- MITM (Man-in-the-Middle)
+5. Wireless Hacking
+# 5.1 Wi-Fi Encryption Standards
+- Standard	Strength
+- WEP	Very weak
+- WPA	Weak–medium
+- WPA2	Strong
+- WPA3	Very strong
 
-- Packet sniffing
+5.2 Wireless Attacks
+#Deauthentication attacks – Disconnecting users
 
-- DoS/DDoS
+- Handshake capture – For password cracking
 
-- ARP poisoning
+- Evil Twin attack – Fake Wi-Fi network
 
-3. Web Application Attacks
+6. Penetration Testing Reports
+# A good pentest report includes:
 
-- SQL Injection
+- Executive summary
 
-- XSS (Cross-site Scripting)
+- Scope of testing
 
-- CSRF
+# Tools and methods used
 
-- Directory traversal
+- Vulnerabilities found
 
+- Risk level (High/Medium/Low)
 
-4. Wireless Attacks
+- Solutions and recommendations
 
+7. **Legal and Ethical Requirements**
+- Ethical hacking must always follow rules:
 
-- Evil twin attacks
+- Get written permission
 
-- Wi-Fi cracking
+- Do not exceed the agreed scope
 
-- Rogue access points
+- Do not damage systems
 
+- Keep data confidential
 
+- Provide accurate reports
 
-5. Penetration Testing Types
- - Black Box Testing - No prior knowledge of the system.It Simulates an external attacker.
+- Unauthorized hacking is illegal and punishable.
 
-2. White Box Testing - Full knowledge of system architecture.Simulates an insider
+8. **Ethical Hacking Certifications**
+- Certification	Level	Purpose
+- CEH	Intermediate	Ethical hacking fundamentals
+- OSCP	Advanced	Practical penetration testing
+- Security+	Beginner	Cybersecurity basics
+- eJPT	Beginner	Hands-on penetration testing
 
-3. Grey Box Testing-Partial knowledge.Balanced and efficient
+9. Practice Labs
+- HackTheBox
 
-    
-    **Ethical Hacking Tools**
-    **For;**
+- TryHackMe
 
-- **Recon & Scanning**
+- OverTheWire
 
-- Nmap
+- VulnHub
 
-- Wireshark
+- DVWA (Damn Vulnerable Web App)
 
-- Shodan
 
-- Exploitation Tools
-
-- Metasploit
-
-- SQLmap
-
-- Burp Suite
-
-
-**Password Cracking**
-
-- John the Ripper
-
-- Hashcat
-
-- Hydra
-
-- Wireless Hacking
-
-- Aircrack-ng
-
-- Kismet
-
-**Forensics** 
-
-
-- Autopsy
-
-- Volatility
-
-     **Legal & Ethical Considerations**
-***Always Ensure:***
-
-- Written authorization before testing
-
-- Clear scope of testing
-
-- Report all findings
-
-- No damage to systems or data
-
-
-   **Computer Misuse Laws**
-**Ethical hackers must avoid:**
-
-- Unauthorized access
-
-- Data theft
-
-- Disruption of service
-
-- Privacy violations
-
-**Cybersecurity Frameworks**
-
-
-- ISO 27001
-
-- NIST Cybersecurity Framework
-
-- OWASP Top 10
-
-- CIS Controls
-
-
-
-    - *OWASP Top 10 2021*
-
-- Broken Access Control
-
-- Cryptographic Failures
-
-- Injection
-
-- Insecure Design
-
-- Security Misconfiguration
-
-- Vulnerable Components
-
-- Identification & Authentication Failures
-
-- Software Integrity Failures
-
-- Security Logging & Monitoring Failures
-
-- Server-Side Request Forgery (SSRF)
-
-
-  **Best Practices for Ethical Hackers**
-
-- Stay updated with security trends
-
-- Practice on legal platforms (TryHackMe, HackTheBox, DVWA)
-
-- Document everything
-
-- Use VMs (Kali Linux, Parrot)
-
-- Always follow proper ethics & law
 
 
 
